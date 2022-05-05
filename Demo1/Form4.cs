@@ -14,7 +14,7 @@ namespace Demo1
     
     public partial class Form4 : Form
     {
-        FileStream fs;
+        FileStream fs; 
         
         public Form4()
         {
