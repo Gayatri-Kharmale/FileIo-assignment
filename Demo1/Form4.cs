@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Soap;
+using System.Text.Json;
 
 namespace Demo1
 {
@@ -36,7 +40,7 @@ namespace Demo1
         {
             try
             {
-                string path = @"F\Test Folder";
+                string path = @"F:\TestFolder";
                 if(Directory.Exists(path))
                 {
                     MessageBox.Show("Folder already exits");
@@ -58,7 +62,7 @@ namespace Demo1
         {
             try
             {
-                string path = @"F\Test Folder\First File.txt";
+                string path = @"F:\TestFolder\First File.txt";
                 if (File.Exists(path))
                 {
                     MessageBox.Show("Folder already exits");
@@ -124,5 +128,202 @@ namespace Demo1
                 fs.Close();
             }
         }
+
+        private void btnwrites_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Department dept = new Department();
+                dept.Id = Convert.ToInt32(textId.Text);
+                dept.Name = textName.Text;
+                dept.Location = textLocation.Text;
+                fs =new FileStream(@"F:\TestFolder\Dept",FileMode.Create, FileAccess.Write);
+                BinaryFormatter binary=new BinaryFormatter();
+                binary.Serialize(fs,dept);
+                MessageBox.Show("Done");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                fs.Close ();
+            }
+        }
+
+        private void btnreads_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Department dept = new Department();
+                fs = new FileStream(@"F:\TestFolder\Dept", FileMode.Open, FileAccess.Read);
+                BinaryFormatter binary = new BinaryFormatter();
+                dept=(Department) binary.Deserialize(fs);
+                textId.Text = dept.Id.ToString();
+                textName.Text = dept.Name;
+                textLocation.Text = dept.Location;
+                MessageBox.Show("Done");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+
+        
+
+        private void btnreadx_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Department dept = new Department();
+                fs = new FileStream(@"F:\TestFolder\Dept", FileMode.Open, FileAccess.Read);
+                XmlSerializer xml = new XmlSerializer(typeof(Department));
+                dept = (Department)xml.Deserialize(fs);
+                textId.Text = dept.Id.ToString();
+                textName.Text = dept.Name;
+                textLocation.Text = dept.Location;
+                MessageBox.Show("Done");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+
+        private void btnwritex_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Department dept = new Department();
+                dept.Id = Convert.ToInt32(textId.Text);
+                dept.Name = textName.Text;
+                dept.Location = textLocation.Text;
+                fs = new FileStream(@"F:\TestFolder\Dept", FileMode.Create, FileAccess.Write);
+                XmlSerializer xml = new XmlSerializer(typeof(Department));
+                xml.Serialize(fs, dept);
+                MessageBox.Show("Done");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+
+        private void btnwrites1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Department dept = new Department();
+                dept.Id = Convert.ToInt32(textId.Text);
+                dept.Name = textName.Text;
+                dept.Location = textLocation.Text;
+                fs = new FileStream(@"F:\TestFolder\Dept", FileMode.Create, FileAccess.Write);
+                SoapFormatter soap = new SoapFormatter();
+                soap.Serialize(fs, dept);
+                MessageBox.Show("Done");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
+
+        }
+
+        private void btnreads2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Department dept = new Department();
+                fs = new FileStream(@"F:\TestFolder\Dept1", FileMode.Open, FileAccess.Read);
+                SoapFormatter soap = new SoapFormatter();
+                dept = (Department)soap.Deserialize(fs);
+                textId.Text = dept.Id.ToString();
+                textName.Text = dept.Name;
+                textLocation.Text = dept.Location;
+                MessageBox.Show("Done");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                fs.Close();
+
+            }
+        }
+
+        private void btnwritej_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Department dept = new Department();
+                dept.Id = Convert.ToInt32(textId.Text);
+                dept.Name = textName.Text;
+                dept.Location = textLocation.Text;
+                fs = new FileStream(@"F:\TestFolder\Dept1", FileMode.Create, FileAccess.Write);
+                JsonSerializer.Serialize(fs, dept);
+                MessageBox.Show("Done");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                fs.Close();
+
+            }
+        }
+
+        private void btnreadj_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Department dept = new Department();
+                
+               fs = new FileStream(@"F:\TestFolder\Dept1", FileMode.Open, FileAccess.Read);
+                dept = JsonSerializer.Deserialize<Department>(fs);
+                textId.Text = dept.Id.ToString();
+                textName.Text = dept.Name;
+                textLocation.Text = dept.Location;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                fs.Close();
+
+            }
+        }
     }
+    
 }

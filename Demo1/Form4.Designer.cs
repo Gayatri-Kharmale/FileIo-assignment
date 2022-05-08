@@ -38,6 +38,14 @@
             this.BtnRead = new System.Windows.Forms.Button();
             this.BtnFolder = new System.Windows.Forms.Button();
             this.BtnFile = new System.Windows.Forms.Button();
+            this.btnwrites = new System.Windows.Forms.Button();
+            this.btnreads = new System.Windows.Forms.Button();
+            this.btnwritex = new System.Windows.Forms.Button();
+            this.btnreadx = new System.Windows.Forms.Button();
+            this.btnwrites1 = new System.Windows.Forms.Button();
+            this.btnreads2 = new System.Windows.Forms.Button();
+            this.btnwritej = new System.Windows.Forms.Button();
+            this.btnreadj = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -45,18 +53,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(133, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Enter Dept Id";
+            this.label1.Text = "Id";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(133, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Enter Dept Name";
+            this.label2.Text = "Name";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
@@ -64,9 +72,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(133, 161);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Enter Location";
+            this.label3.Text = " Location";
             // 
             // textId
             // 
@@ -129,11 +137,99 @@
             this.BtnFile.UseVisualStyleBackColor = true;
             this.BtnFile.Click += new System.EventHandler(this.BtnFile_Click);
             // 
+            // btnwrites
+            // 
+            this.btnwrites.Location = new System.Drawing.Point(563, 61);
+            this.btnwrites.Name = "btnwrites";
+            this.btnwrites.Size = new System.Drawing.Size(75, 23);
+            this.btnwrites.TabIndex = 10;
+            this.btnwrites.Text = "Binary Write";
+            this.btnwrites.UseVisualStyleBackColor = true;
+            this.btnwrites.Click += new System.EventHandler(this.btnwrites_Click);
+            // 
+            // btnreads
+            // 
+            this.btnreads.Location = new System.Drawing.Point(674, 61);
+            this.btnreads.Name = "btnreads";
+            this.btnreads.Size = new System.Drawing.Size(75, 23);
+            this.btnreads.TabIndex = 11;
+            this.btnreads.Text = "Binary Read";
+            this.btnreads.UseVisualStyleBackColor = true;
+            this.btnreads.Click += new System.EventHandler(this.btnreads_Click);
+            // 
+            // btnwritex
+            // 
+            this.btnwritex.Location = new System.Drawing.Point(563, 197);
+            this.btnwritex.Name = "btnwritex";
+            this.btnwritex.Size = new System.Drawing.Size(75, 23);
+            this.btnwritex.TabIndex = 12;
+            this.btnwritex.Text = "xml write";
+            this.btnwritex.UseVisualStyleBackColor = true;
+            this.btnwritex.Click += new System.EventHandler(this.btnwritex_Click_1);
+            // 
+            // btnreadx
+            // 
+            this.btnreadx.Location = new System.Drawing.Point(684, 197);
+            this.btnreadx.Name = "btnreadx";
+            this.btnreadx.Size = new System.Drawing.Size(75, 23);
+            this.btnreadx.TabIndex = 13;
+            this.btnreadx.Text = "xml read";
+            this.btnreadx.UseVisualStyleBackColor = true;
+            this.btnreadx.Click += new System.EventHandler(this.btnreadx_Click);
+            // 
+            // btnwrites1
+            // 
+            this.btnwrites1.Location = new System.Drawing.Point(563, 252);
+            this.btnwrites1.Name = "btnwrites1";
+            this.btnwrites1.Size = new System.Drawing.Size(75, 23);
+            this.btnwrites1.TabIndex = 14;
+            this.btnwrites1.Text = "soap write";
+            this.btnwrites1.UseVisualStyleBackColor = true;
+            this.btnwrites1.Click += new System.EventHandler(this.btnwrites1_Click);
+            // 
+            // btnreads2
+            // 
+            this.btnreads2.Location = new System.Drawing.Point(684, 261);
+            this.btnreads2.Name = "btnreads2";
+            this.btnreads2.Size = new System.Drawing.Size(75, 23);
+            this.btnreads2.TabIndex = 15;
+            this.btnreads2.Text = "soap  read";
+            this.btnreads2.UseVisualStyleBackColor = true;
+            this.btnreads2.Click += new System.EventHandler(this.btnreads2_Click);
+            // 
+            // btnwritej
+            // 
+            this.btnwritej.Location = new System.Drawing.Point(563, 300);
+            this.btnwritej.Name = "btnwritej";
+            this.btnwritej.Size = new System.Drawing.Size(75, 23);
+            this.btnwritej.TabIndex = 16;
+            this.btnwritej.Text = "json write";
+            this.btnwritej.UseVisualStyleBackColor = true;
+            this.btnwritej.Click += new System.EventHandler(this.btnwritej_Click);
+            // 
+            // btnreadj
+            // 
+            this.btnreadj.Location = new System.Drawing.Point(684, 300);
+            this.btnreadj.Name = "btnreadj";
+            this.btnreadj.Size = new System.Drawing.Size(75, 23);
+            this.btnreadj.TabIndex = 17;
+            this.btnreadj.Text = "json read";
+            this.btnreadj.UseVisualStyleBackColor = true;
+            this.btnreadj.Click += new System.EventHandler(this.btnreadj_Click);
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnreadj);
+            this.Controls.Add(this.btnwritej);
+            this.Controls.Add(this.btnreads2);
+            this.Controls.Add(this.btnwrites1);
+            this.Controls.Add(this.btnreadx);
+            this.Controls.Add(this.btnwritex);
+            this.Controls.Add(this.btnreads);
+            this.Controls.Add(this.btnwrites);
             this.Controls.Add(this.BtnFile);
             this.Controls.Add(this.BtnFolder);
             this.Controls.Add(this.BtnRead);
@@ -145,7 +241,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form4";
-            this.Text = "File IO";
+            this.Text = "Department";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,5 +260,13 @@
         private System.Windows.Forms.Button BtnRead;
         private System.Windows.Forms.Button BtnFolder;
         private System.Windows.Forms.Button BtnFile;
+        private System.Windows.Forms.Button btnwrites;
+        private System.Windows.Forms.Button btnreads;
+        private System.Windows.Forms.Button btnwritex;
+        private System.Windows.Forms.Button btnreadx;
+        private System.Windows.Forms.Button btnwrites1;
+        private System.Windows.Forms.Button btnreads2;
+        private System.Windows.Forms.Button btnwritej;
+        private System.Windows.Forms.Button btnreadj;
     }
 }
